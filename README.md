@@ -1,1 +1,3 @@
 # GeneticNetwork
+
+An idea I had a while back when I was struggling with hyperparameter tuning- why not use a genetic algo to train hyperparameters? Long story short, this ended up having a number of issues, the most significant of which is actually an issue with python keeping the context of unused networks connecting to the graphics card. From what I can tell it's a weird side effect of how python interfaces with NVidia. The fix is simple enough- spin off a separate thread for each instance and then kill those instances when you're done to break the context and stop the memory leak on the graphics card.
